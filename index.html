@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            window.sessionStorage.setItem("test", "This item is present in session Storage");
+        </script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script>
+            function printStorage(time) {
+                const rootElement = document.getElementById("root");
+                const textElement = document.createElement("div");
+                textElement.innerText = `Fetching item after ${time}ms: ` + String(sessionStorage.getItem("test"));
+                rootElement.appendChild(textElement);
+            }
+            setTimeout(printStorage, 200, 200);
+            setTimeout(printStorage, 500, 500);
+            setTimeout(printStorage, 1000, 1000);
+            setTimeout(printStorage, 2000, 2000);
+        </script>
+    </body>
+</html>
